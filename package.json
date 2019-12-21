@@ -1,0 +1,32 @@
+{
+  "name": "vimelibrary",
+  "version": "1.0.0",
+  "description": "Библиотека для лёгкого использования VimeWorld API",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vladciphersky/vimelibrary.git"
+  },
+  "keywords": [
+    "vimeworld",
+    "vimeapi",
+    "vimelibrary",
+    "vimelib",
+    "vimeverify",
+    "vimestats"
+  ],
+  "author": "vladciphersky",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/vladciphersky/vimelibrary/issues"
+  },
+  "homepage": "https://github.com/vladciphersky/vimelibrary#readme",
+  "dependencies": {
+    "moment": "^2.24.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.8"
+  }
+}
