@@ -2,6 +2,42 @@ const request = require('request-promise-native');
 const hostname = "https://api.vime.world";
 const { version } = require('./package');
 
+const rank = {
+	PLAYER: {rank: "Игрок", prefix: "", color: "ffffff"},
+	VIP: {rank: "VIP", prefix: "[VIP] ", color: "00be00"},
+	PREMIUM: {rank: "Premium", prefix: "[Premium] ", color: "00dada"},
+	HOLY: {rank: "Holy", prefix: "[Holy ]", color: "ffba2d"},
+	IMMORTAL: {rank: "Immortal", prefix: "[Immortal] ", color: "e800d5"},
+	BUILDER: {rank: "Билдер", prefix: "[Билдер] ", color: "009c00"},
+	MAPLEAD: {rank: "Главный билдер", prefix: "[Гл. билдер] ", color: "009c00"},
+	YOUTUBE: {rank: "YouTube", prefix: "[YouTube] ", color: "fe3f3f"},
+	DEV: {rank: "Разработчик", prefix: "[Dev] ", color: "00bebe"},
+	ORGANIZER: {rank: "Организатор", prefix: "[Организатор] ", color: "00bebe"},
+	MODER: {rank: "Модератор", prefix: "[Модер] ", color: "1b00ff"},
+	WARDEN: {rank: "Проверенный модератор", prefix: "[Пр. Модер] ", color: "1b00ff"},
+	CHIEF: {rank: "Главный модератор", prefix: "[Гл. модер] ", color: "1b00ff"},
+	ADMIN: {rank: "Главный админ", prefix: "[Гл. админ] ", color: "00bebe"}
+};
+
+const guildTagColor = {
+	"&0": "#000000",
+	"&1": "#0000AA",
+	"&2": "#00AA00",
+	"&3": "#00AAAA",
+	"&4": "#AA0000",
+	"&5": "#AA00AA",
+	"&6": "#FFAA00",
+	"&7": "#AAAAAA",
+	"&8": "#555555",
+	"&9": "#5555FF",
+	"&a": "#55FF55",
+	"&b": "#55FFFF",
+	"&c": "#FF5555",
+	"&d": "#FF55FF",
+	"&e": "#FFFF55",
+	"&f": "#FFFFFF"
+};
+
 const User = function (token) {
     if(!token) token = null;
 	
@@ -200,4 +236,9 @@ const Misc = function (token) {
     };
 };
 
-module.exports = { User, Guild, Online, Matches, Misc };
+const Utils = {
+	userRanks: rank,
+	tagColors: guildTagColor
+};
+
+module.exports = { User, Guild, Online, Matches, Misc, Utils };
