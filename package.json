@@ -1,6 +1,6 @@
 {
   "name": "vimelibrary",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Библиотека для лёгкого использования VimeWorld API",
   "main": "index.js",
   "scripts": {
