@@ -4,7 +4,8 @@
 		Что такое VimeLibrary?
 		</h3>
 		VimeLibrary — библиотека для лёгкого использования <a href="https://api.vime.world/web/index">VimeWorld API</a>.
-		 Данная библиотека была немного переписана, и постепенно в ней появятся все методы.
+		Данная библиотека была полностью переписана, прошлый код был слишком ужасным.
+		Документация: <a href="https://vladciphersky.github.io/vimelibrary/docs">клик</a>
 </p>
 
 <p align="center">
