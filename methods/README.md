@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="assets/using.png"/>
+    <img src="../assets/using.png"/>
     <h3 align="center">
 	Методы для использования библиотеки
 	</h3>
