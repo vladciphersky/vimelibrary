@@ -1,26 +1,19 @@
 const Lib = require('./');
-const Vime = {
-	User: new Lib.User(),
-	Guild: new Lib.Guild(),
-	Online: new Lib.Online(),
-	Matches: new Lib.Matches(),
-	Misc: new Lib.Misc(),
-	Utils: new Lib.Utils()
-};
 
-Vime.User.get('id', '1').then((user) => console.log(user[0].username));
-Vime.User.get('name', 'xtrafrancyz').then((user) => console.log(user[0].username));
-Vime.User.get('session', '1').then((user) => console.log(user[0].session.value));
-Vime.User.friends('1').then((user) => console.log(user.friends[0].username));
+const User = new Lib.User();
+const Guild = new Lib.Guild();
+const Online = new Lib.Online();
+const Matches = new Lib.Matches();
+const Misc = new Lib.Misc();
 
-Vime.Guild.get('id', '1').then((guild) => console.log(guild.name));
-Vime.Guild.get('tag', 'Котик').then((guild) => console.log(guild.name));
-Vime.Guild.get('name', 'AquaLiquid').then((guild) => console.log(guild.name));
+User.get('id', '134568').then(async (user) => await console.log(`Найденный игрок по ID ${user[0].id}: ${user[0].username}`));
+User.get('session', '134568').then(async (user) => await console.log(`Статус найденного игрока: ${user[0].online.message}`));
 
-Vime.Online.get().then((data) => console.log(data.total));
-Vime.Online.get('staff').then((data) => console.log(`Модеров онлайн: ${data.length}`));
-Vime.Online.get('streams').then((data) => console.log(`Стримеров на сервере: ${data.length}`));
+Guild.get('tag', encodeURI('Котик')).then(async (guild) => await console.log(`Найденная гильдия по тэгу "${guild.tag}": ${guild.name}`));
 
-Vime.Matches.latest().then((data) => console.log(`Последний матч на сервере: ${data[0].id}`));
+Online.get('staff').then(async (data) => await console.log(`Модеров онлайн: ${data.length}`));
+Online.get('streams').then(async (data) => await console.log(`Стримеров: ${data.length}`));
 
-Vime.Misc.token().then((data) => console.log(data.token));
+Matches.latest().then(async (data) => await console.log(`Последний матч на сервере: ${data[0].id}`));
+
+Misc.token().then(async (data) => await console.log(`Проверка токена: ${((data.valid == true) ? data.token : "Токен не указан")}`));

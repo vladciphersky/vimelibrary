@@ -1,6 +1,6 @@
 {
   "name": "vimelibrary",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Библиотека для лёгкого использования VimeWorld API",
   "main": "index.js",
   "scripts": {
@@ -18,9 +18,6 @@
     "vimeverify",
     "vimestats"
   ],
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "author": "vladciphersky",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
