@@ -33,4 +33,5 @@ const online = new Vime.Online();
 const matches = new Vime.Matches();
 const misc = new Vime.Misc();
 ```
-## Выберите подходящий для вас класс выше, над этим всем.. добром. :D
+## Выберите подходящий для вас класс ниже, под этим всем.. добром. :D
+[User](https://github.com/vladciphersky/vimelibrary/blob/master/methods/USER.md) | [Guild](https://github.com/vladciphersky/vimelibrary/blob/master/methods/GUILD.md) | [Online](https://github.com/vladciphersky/vimelibrary/blob/master/methods/ONLINE.md) | [Matches](https://github.com/vladciphersky/vimelibrary/blob/master/methods/MATCHES.md) | [Misc](https://github.com/vladciphersky/vimelibrary/blob/master/methods/MISC.md)
