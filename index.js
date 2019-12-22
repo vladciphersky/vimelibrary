@@ -6,7 +6,7 @@ const rank = {
 	PLAYER: {rank: "Игрок", prefix: "", color: "ffffff"},
 	VIP: {rank: "VIP", prefix: "[VIP] ", color: "00be00"},
 	PREMIUM: {rank: "Premium", prefix: "[Premium] ", color: "00dada"},
-	HOLY: {rank: "Holy", prefix: "[Holy ]", color: "ffba2d"},
+	HOLY: {rank: "Holy", prefix: "[Holy] ", color: "ffba2d"},
 	IMMORTAL: {rank: "Immortal", prefix: "[Immortal] ", color: "e800d5"},
 	BUILDER: {rank: "Билдер", prefix: "[Билдер] ", color: "009c00"},
 	MAPLEAD: {rank: "Главный билдер", prefix: "[Гл. билдер] ", color: "009c00"},
@@ -20,22 +20,22 @@ const rank = {
 };
 
 const guildTagColor = {
-	"&0": "#000000",
-	"&1": "#0000AA",
-	"&2": "#00AA00",
-	"&3": "#00AAAA",
-	"&4": "#AA0000",
-	"&5": "#AA00AA",
-	"&6": "#FFAA00",
-	"&7": "#AAAAAA",
-	"&8": "#555555",
-	"&9": "#5555FF",
-	"&a": "#55FF55",
-	"&b": "#55FFFF",
-	"&c": "#FF5555",
-	"&d": "#FF55FF",
-	"&e": "#FFFF55",
-	"&f": "#FFFFFF"
+	"&0": "000000",
+	"&1": "0000AA",
+	"&2": "00AA00",
+	"&3": "00AAAA",
+	"&4": "AA0000",
+	"&5": "AA00AA",
+	"&6": "FFAA00",
+	"&7": "AAAAAA",
+	"&8": "555555",
+	"&9": "5555FF",
+	"&a": "55FF55",
+	"&b": "55FFFF",
+	"&c": "FF5555",
+	"&d": "FF55FF",
+	"&e": "FFFF55",
+	"&f": "FFFFFF"
 };
 
 const User = function (token) {
@@ -73,42 +73,42 @@ const User = function (token) {
 		if(!id) return console.error('[VimeLibrary] Не указан ID игрока.');
     
         return request(this.options(`/user/${id}/friends`))
-            .then((r) => r, (e) => console.error('[VimeLibrary] Ошибка в работе | ', e));
+            .then((r) => r.friends, (e) => console.error('[VimeLibrary] Ошибка в работе | ', e));
     };
 
     this.session = (id) => {
 		if(!id) return console.error('[VimeLibrary] Не указан ID игрока.');
     
         return request(this.options(`/user/${id}/session`))
-            .then((r) => r, (e) => console.error('[VimeLibrary] Ошибка в работе | ', e));
+            .then((r) => r.online, (e) => console.error('[VimeLibrary] Ошибка в работе | ', e));
     };
 
     this.stats = (id) => {
 		if(!id) return console.error('[VimeLibrary] Не указан ID игрока.');
     
         return request(this.options(`/user/${id}/stats`))
-            .then((r) => r, (e) => console.error('[VimeLibrary] Ошибка в работе | ', e));
+            .then((r) => r.stats, (e) => console.error('[VimeLibrary] Ошибка в работе | ', e));
     };
 
     this.achievements = (id) => {
 		if(!id) return console.error('[VimeLibrary] Не указан ID игрока.');
     
         return request(this.options(`/user/${id}/achievements`))
-            .then((r) => r, (e) => console.error('[VimeLibrary] Ошибка в работе | ', e));
+            .then((r) => r.achievements, (e) => console.error('[VimeLibrary] Ошибка в работе | ', e));
     };
 
     this.leaderboards = (id) => {
 		if(!id) return console.error('[VimeLibrary] Не указан ID игрока.');
     
         return request(this.options(`/user/${id}/leaderboards`))
-            .then((r) => r, (e) => console.error('[VimeLibrary] Ошибка в работе | ', e));
+            .then((r) => r.leaderboards, (e) => console.error('[VimeLibrary] Ошибка в работе | ', e));
     };
 
     this.matches = (id) => {
 		if(!id) return console.error('[VimeLibrary] Не указан ID игрока.');
     
         return request(this.options(`/user/${id}/matches`))
-            .then((r) => r, (e) => console.error('[VimeLibrary] Ошибка в работе | ', e));
+            .then((r) => r.matches, (e) => console.error('[VimeLibrary] Ошибка в работе | ', e));
     };
 };
 
@@ -122,7 +122,7 @@ const Guild = function (token) {
 			method: method,
     			uri: hostname + uri,
     			qs: (token == null) ? {} : { token },
-    			headers: { 'User-Agent': `VimeLibrary/${version} (${uri} | ${token})` },
+    			headers: { 'User-Agent': `VimeLibrary/${version} (${encodeURI(uri)} | ${token})` },
     			json: true
   		};
     };
@@ -132,13 +132,13 @@ const Guild = function (token) {
 		if(!arg) return console.error('[VimeLibrary] Не указан аргумент для поиска.');
     
         if(by == 'name') 
-            return request(this.options(`/guild/get?${by}=${arg}`))
+            return request(this.options(`/guild/get?${encodeURI(by)}=${encodeURI(arg)}`))
                 .then((r) => r, (e) => console.error('[VimeLibrary] Ошибка в работе | ', e));
         else if(by == 'id') 
-            return request(this.options(`/guild/get?${by}=${arg}`))
+            return request(this.options(`/guild/get?${encodeURI(by)}=${encodeURI(arg)}`))
                 .then((r) => r, (e) => console.error('[VimeLibrary] Ошибка в работе | ', e));
         else if(by == 'tag') 
-            return request(this.options(`/guild/get?${by}=${arg}`))
+            return request(this.options(`/guild/get?${encodeURI(by)}=${encodeURI(arg)}`))
                 .then((r) => r, (e) => console.error('[VimeLibrary] Ошибка в работе | ', e));
         else return console.error('[VimeLibrary] Указан неверный тип поиска игроков.');
     };
@@ -146,7 +146,7 @@ const Guild = function (token) {
     this.search = (arg) => {
         if(!arg) return console.error('[VimeLibrary] Не указан аргумент для поиска.');
     
-        return request(this.options(`/guild/search?query=${arg}`))
+        return request(this.options(`/guild/search?query=${encodeURI(arg)}`))
             .then((r) => r, (e) => console.error('[VimeLibrary] Ошибка в работе | ', e));
     };
 };
@@ -207,8 +207,8 @@ const Matches = function (token) {
     };
 
     this.list = (before, after) => {
-        if(!before) return console.error('[VimeLibrary] Не указан аругмент для значения before.');
-        if(!after) return console.error('[VimeLibrary] Не указан аругмент для значения after.');
+        if(!before) return console.error('[VimeLibrary] Не указан аргумент для значения before.');
+        if(!after) return console.error('[VimeLibrary] Не указан аргумент для значения after.');
 
         return request(this.options(`/match/list?before=${(Number(before) == true) ? before : NaN}&after=${(Number(after) == true) ? after : NaN}`))
             .then((r) => r, (e) => console.error('[VimeLibrary] Ошибка в работе | ', e));
