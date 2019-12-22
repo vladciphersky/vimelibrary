@@ -5,7 +5,7 @@
 		</h3>
 		VimeLibrary — библиотека для лёгкого использования <a href="https://api.vime.world/web/index">VimeWorld API</a>.
 		Данная библиотека была полностью переписана, прошлый код был слишком ужасным.
-		Документация: <a href="https://vladciphersky.github.io/vimelibrary/docs">клик</a>
+		Документация: <a href="https://vladciphersky.github.io/vimelibrary/methods">клик</a>
 </p>
 
 <p align="center">
