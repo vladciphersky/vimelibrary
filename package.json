@@ -18,6 +18,9 @@
     "vimeverify",
     "vimestats"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "author": "vladciphersky",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
