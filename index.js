@@ -1,5 +1,5 @@
 const request = require('request-promise-native');
-const hostname = "https://api.vime.world";
+const hostname = "https://api.vimeworld.ru";
 const { version } = require('./package');
 
 const rank = {
